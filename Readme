@@ -1,0 +1,7 @@
+Git script allows you to delete all remote and/or local branches except any provided branches.
+
+Recommend way to add this is to alias it in your .bash_profile
+
+See ./git_prune_script -h for usage
+
+ToDo: Add merged deleting already merged branches option.
