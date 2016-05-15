@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Automatically adds branch name to the beginning of every commit message. Handy for git/JIRA integrations.
+
+# How to setup globally (git version 1.7.1+):
+# mkdir ~/.git_template/ && mkdir ~/.git_template/hooks/
+# git config --global init.templatedir '~/.git_template'
+# mv ~/[path/to/this/file] ~/.git_template/hooks
+
+# Afterward, new repositories you create or clone will use this directory for templates. 
+# Place the hooks you want in ~/.git_template/hooks. 
+# Existing repositories can be reinitialized with the proper templates by running git init in the same directory .git is in.
+
+NAME=$(git branch | grep '*' | sed 's/* //') 
+echo "$NAME -" $(cat "$1") > "$1"
