@@ -14,3 +14,7 @@ git_prune_script.sh
 prepare-commit-msg
 
   Global git hook that prepends "branchName - " to all commits, allowing automatic linking to tickets
+
+Other useful tools
+
+  https://github.com/m1foley/fit-commit - Validates each commit against community/team standards before allowing you to commit
