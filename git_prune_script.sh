@@ -21,13 +21,13 @@ usage() {
 
 delete_remote_branches() {
 	#checks and prunes origin then deletes any remote branch not in list
-	git branch -r | awk -F/ '{print $2}' | grep -v ${1} | xargs -I {} git push origin :{}
+	git fetch origin --prune && git branch -r | awk -F/ '{print $2}' | grep -v ${1} | xargs -I {} git push origin :{}
 }
 
 delete_local_branches() {
-	echo $1
 	#deletes any local branch not in list
-	git branch | grep -v ${1} | xargs git branch -d 
+	git branch | grep -v ${1} | xargs git branch -d
+    git branch | grep -v ${1} | xargs git branch -D
 }
 
 build_restricted_branch_list() {
