@@ -6,7 +6,15 @@ git_prune_script.sh
 
   Git script allows you to delete all remote and/or local branches except any provided branches.
 
-  Recommend way to add this is to alias it in your .bash_profile
+Recommend way to add this is to alias it in your .bash_profile like such:
+
+runPruneScript() {
+SCRIPT_PATH=~/git/GitTools
+chmod +x $SCRIPT_PATH/git_prune_script.sh
+sh $SCRIPT_PATH/git_prune_script.sh "$@"
+}
+alias gitprune=runPruneScript "$@"
+
   See ./git_prune_script -h for usage
 
   ToDo: Add merged deleting already merged branches option.
